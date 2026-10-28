@@ -1,0 +1,6 @@
+{
+  "name": "J-Music",
+  "description": "J-Music (Neon Music Hub) - Pemutar musik futuristik dengan integrasi Jamendo API, visualisasi neon techno, koleksi favorit & playlist, modul donasi Johan, dan kepatuhan lisensi resmi.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

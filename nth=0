@@ -1,0 +1,45 @@
+### Error
+Error: Error: strict mode violation: locator('button[aria-label="Opsi lainnya"]') resolved to 3 elements:
+    1) <button aria-label="Opsi lainnya" class="p-2 rounded-xl text-slate-400 hover:text-slate-200 hover:bg-slate-800/60 transition-colors">…</button> aka getByRole('button', { name: 'Opsi lainnya' }).first()
+    2) <button aria-label="Opsi lainnya" class="p-2 rounded-xl text-slate-400 hover:text-slate-200 hover:bg-slate-800/60 transition-colors">…</button> aka getByRole('button', { name: 'Opsi lainnya' }).nth(1)
+    3) <button aria-label="Opsi lainnya" class="p-2 rounded-xl text-slate-400 hover:text-slate-200 hover:bg-slate-800/60 transition-colors">…</button> aka getByRole('button', { name: 'Opsi lainnya' }).nth(2)
+
+Call log:
+  - waiting for locator('button[aria-label="Opsi lainnya"]')
+
+### Error
+Error: Error: strict mode violation: locator('button[aria-label="Opsi lainnya"]') resolved to 3 elements:
+    1) <button aria-label="Opsi lainnya" class="p-2 rounded-xl text-slate-400 hover:text-slate-200 hover:bg-slate-800/60 transition-colors">…</button> aka getByRole('button', { name: 'Opsi lainnya' }).first()
+    2) <button aria-label="Opsi lainnya" class="p-2 rounded-xl text-slate-400 hover:text-slate-200 hover:bg-slate-800/60 transition-colors">…</button> aka getByRole('button', { name: 'Opsi lainnya' }).nth(1)
+    3) <button aria-label="Opsi lainnya" class="p-2 rounded-xl text-slate-400 hover:text-slate-200 hover:bg-slate-800/60 transition-colors">…</button> aka getByRole('button', { name: 'Opsi lainnya' }).nth(2)
+
+Call log:
+  - waiting for locator('button[aria-label="Opsi lainnya"]')
+
+### Error
+Error: Error: strict mode violation: locator('text=Unduh Aktif') resolved to 3 elements:
+    1) <span title="Download Diizinkan Resmi" class="text-[9px] px-1.5 py-0.2 rounded-full bg-emerald-950/70 text-emerald-300 border border-emerald-500/30">Unduh Aktif</span> aka getByText('Unduh Aktif').first()
+    2) <span title="Download Diizinkan Resmi" class="text-[9px] px-1.5 py-0.2 rounded-full bg-emerald-950/70 text-emerald-300 border border-emerald-500/30">Unduh Aktif</span> aka getByText('Unduh Aktif').nth(1)
+    3) <span title="Download Diizinkan Resmi" class="text-[9px] px-1.5 py-0.2 rounded-full bg-emerald-950/70 text-emerald-300 border border-emerald-500/30">Unduh Aktif</span> aka getByText('Unduh Aktif').nth(2)
+
+Call log:
+  - waiting for locator('text=Unduh Aktif')
+
+### Error
+Error: Error: strict mode violation: locator('button:has-text("Unduh Aktif")') resolved to 3 elements:
+    1) <button title="Klik untuk Unduh File Resmi" class="text-[9px] px-1.5 py-0.2 rounded-full bg-emerald-950/70 hover:bg-emerald-900 text-emerald-300 border border-emerald-500/30 cursor-pointer font-medium transition-colors">Unduh Aktif</button> aka getByRole('button', { name: 'Unduh Aktif' }).first()
+    2) <button title="Klik untuk Unduh File Resmi" class="text-[9px] px-1.5 py-0.2 rounded-full bg-emerald-950/70 hover:bg-emerald-900 text-emerald-300 border border-emerald-500/30 cursor-pointer font-medium transition-colors">Unduh Aktif</button> aka getByRole('button', { name: 'Unduh Aktif' }).nth(1)
+    3) <button title="Klik untuk Unduh File Resmi" class="text-[9px] px-1.5 py-0.2 rounded-full bg-emerald-950/70 hover:bg-emerald-900 text-emerald-300 border border-emerald-500/30 cursor-pointer font-medium transition-colors">Unduh Aktif</button> aka getByRole('button', { name: 'Unduh Aktif' }).nth(2)
+
+Call log:
+  - waiting for locator('button:has-text("Unduh Aktif")')
+
+### Error
+Error: Error: strict mode violation: locator('button[title="Klik untuk Unduh File Resmi"]') resolved to 3 elements:
+    1) <button title="Klik untuk Unduh File Resmi" class="text-[9px] px-1.5 py-0.2 rounded-full bg-emerald-950/70 hover:bg-emerald-900 text-emerald-300 border border-emerald-500/30 cursor-pointer font-medium transition-colors">Unduh Aktif</button> aka getByRole('button', { name: 'Unduh Aktif' }).first()
+    2) <button title="Klik untuk Unduh File Resmi" class="text-[9px] px-1.5 py-0.2 rounded-full bg-emerald-950/70 hover:bg-emerald-900 text-emerald-300 border border-emerald-500/30 cursor-pointer font-medium transition-colors">Unduh Aktif</button> aka getByRole('button', { name: 'Unduh Aktif' }).nth(1)
+    3) <button title="Klik untuk Unduh File Resmi" class="text-[9px] px-1.5 py-0.2 rounded-full bg-emerald-950/70 hover:bg-emerald-900 text-emerald-300 border border-emerald-500/30 cursor-pointer font-medium transition-colors">Unduh Aktif</button> aka getByRole('button', { name: 'Unduh Aktif' }).nth(2)
+
+Call log:
+  - waiting for locator('button[title="Klik untuk Unduh File Resmi"]')
+

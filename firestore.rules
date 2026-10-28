@@ -1,0 +1,49 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Helper functions
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+
+    // User profile document
+    match /users/{userId} {
+      allow read, write: if isOwner(userId);
+
+      // User favorites subcollection
+      match /favorites/{trackId} {
+        allow read, write: if isOwner(userId);
+      }
+
+      // User playlists subcollection
+      match /playlists/{playlistId} {
+        allow read, write: if isOwner(userId);
+
+        match /tracks/{trackId} {
+          allow read, write: if isOwner(userId);
+        }
+      }
+
+      // User recently played tracks
+      match /recent/{trackId} {
+        allow read, write: if isOwner(userId);
+      }
+    }
+
+    // Public app configuration (read-only for clients, write restricted)
+    match /appConfig/{document} {
+      allow read: if true;
+      allow write: if false;
+    }
+
+    // Default deny all other collections
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
