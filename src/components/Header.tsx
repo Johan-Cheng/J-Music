@@ -20,13 +20,18 @@ export const Header: React.FC<HeaderProps> = ({
   return (
     <header className="sticky top-0 z-40 w-full bg-[#071122]/85 backdrop-blur-md border-b border-cyan-500/15 px-4 py-3 transition-colors">
       <div className="max-w-md mx-auto flex items-center justify-between gap-3">
-        {/* Brand Orb & Title */}
+        {/* Brand Orb & Title using J-Music photo link */}
         <div className="flex items-center gap-2.5">
           <div className="relative flex items-center justify-center w-10 h-10 rounded-2xl bg-gradient-to-tr from-cyan-600 via-[#0B1C32] to-[#FF5FC8] p-[1.5px] shadow-[0_0_15px_rgba(0,217,255,0.3)]">
             <div className="w-full h-full bg-[#071122] rounded-[14px] flex items-center justify-center relative overflow-hidden">
-              <span className="text-xl font-black bg-gradient-to-r from-[#00D9FF] to-[#67FFD4] bg-clip-text text-transparent tracking-tighter">
-                J
-              </span>
+              <img
+                src="https://jambijohan0-cpu.github.io/Johan/img/J-Music.png"
+                alt="J-Music"
+                className="w-full h-full object-cover"
+                onError={(e) => {
+                  (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=100';
+                }}
+              />
               {/* Subtle inner pulse when playing */}
               {isPlaying && (
                 <div className="absolute inset-0 bg-cyan-400/20 animate-pulse rounded-full pointer-events-none" />

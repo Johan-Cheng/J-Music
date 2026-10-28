@@ -38,44 +38,38 @@ export const HomeView: React.FC<HomeViewProps> = ({
 }) => {
   return (
     <div className="space-y-6 pb-28 animate-fade-in">
-      {/* Hero Banner with Neon Techno Light styling */}
-      <section className="relative overflow-hidden rounded-3xl p-5 sm:p-6 bg-gradient-to-br from-[#0B1C32] via-[#071122] to-[#120f2e] border border-cyan-500/25 shadow-[0_0_25px_rgba(0,217,255,0.15)]">
-        {/* Glow backdrop spots */}
-        <div className="absolute -top-12 -right-12 w-48 h-48 bg-cyan-500/20 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute -bottom-12 -left-12 w-48 h-48 bg-[#FF5FC8]/15 rounded-full blur-3xl pointer-events-none" />
+      {/* Hero Banner with Custom Photo & Animated Musical Accessories */}
+      <section style={{ display: 'none' }} className="relative overflow-hidden rounded-3xl p-6 bg-gradient-to-br from-[#0B1C32] via-[#071122] to-[#120f2e] border border-cyan-500/25 shadow-[0_0_25px_rgba(0,217,255,0.15)] flex flex-col items-center text-center">
+        {/* Animated Background Stars & Floating Musical Notes (♩, ♪, ♫, ♬, 🎵, 🎶) */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
+          {/* Stars */}
+          <span className="absolute top-2 left-6 text-yellow-300 animate-ping text-xs">⭐</span>
+          <span className="absolute top-8 right-8 text-[#67FFD4] animate-pulse text-sm">✨</span>
+          <span className="absolute bottom-4 left-1/4 text-[#00D9FF] animate-bounce text-xs">🌟</span>
+          <span className="absolute top-1/2 right-4 text-pink-400 animate-ping text-xs" style={{ animationDuration: '3s' }}>✨</span>
 
-        <div className="relative z-10">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-950/80 border border-cyan-500/40 text-[11px] font-bold text-[#00D9FF] mb-3">
-            <Zap className="w-3.5 h-3.5 fill-current" />
-            <span>AUDIUS DEFAULT • NEON MUSIC HUB</span>
-          </div>
+          {/* Floating colorful musical notes */}
+          <span className="absolute top-3 left-1/3 text-[#00D9FF] animate-bounce text-base font-extrabold" style={{ animationDuration: '2.2s' }}>♩</span>
+          <span className="absolute top-10 right-1/4 text-[#FF5FC8] animate-pulse text-lg font-bold" style={{ animationDuration: '1.8s' }}>♪</span>
+          <span className="absolute bottom-6 right-1/3 text-[#67FFD4] animate-bounce text-xl font-bold" style={{ animationDuration: '2.5s' }}>♫</span>
+          <span className="absolute top-1/3 left-4 text-purple-400 animate-pulse text-lg" style={{ animationDuration: '2s' }}>♬</span>
+          <span className="absolute bottom-8 left-12 text-cyan-300 animate-bounce text-lg" style={{ animationDuration: '3s' }}>🎵</span>
+          <span className="absolute top-5 right-12 text-yellow-400 animate-pulse text-xl" style={{ animationDuration: '2.7s' }}>🎶</span>
+        </div>
 
-          <h2 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight leading-tight">
-            Eksplorasi Musik Legal & <span className="text-[#00D9FF]">Futuristik</span>
-          </h2>
-
-          <p className="text-xs sm:text-sm text-slate-300 mt-1.5 max-w-sm leading-relaxed">
-            Streaming resmi via Audius API sebagai provider utama dan fallback Jamendo. Simpan playlist, unduh lagu yang diizinkan kreator.
-          </p>
-
-          <div className="flex flex-wrap items-center gap-2.5 mt-4">
-            <button
-              onClick={() => onPlayAll(trendingTracks)}
-              disabled={trendingTracks.length === 0}
-              className="px-4 py-2.5 rounded-xl font-bold text-xs bg-gradient-to-r from-[#00D9FF] to-[#67FFD4] text-slate-950 hover:brightness-110 flex items-center gap-2 shadow-[0_0_15px_rgba(0,217,255,0.4)] active:scale-95 transition-all"
-            >
-              <Play className="w-4 h-4 fill-current" />
-              <span>Putar Semua Trending</span>
-            </button>
-
-            <button
-              onClick={onRefresh}
-              aria-label="Segarkan lagu"
-              className="px-3 py-2.5 rounded-xl text-xs bg-slate-800/80 hover:bg-slate-700/80 text-slate-300 flex items-center gap-1.5 border border-slate-700/60 active:scale-95 transition-all"
-            >
-              <RefreshCw className={`w-3.5 h-3.5 ${isLoading ? 'animate-spin text-cyan-400' : ''}`} />
-              <span>Segarkan</span>
-            </button>
+        {/* User requested custom photo with animated effects */}
+        <div className="relative z-10 my-2">
+          <div className="relative w-32 h-32 mx-auto rounded-3xl p-1 bg-gradient-to-tr from-[#00D9FF] via-[#67FFD4] to-[#FF5FC8] shadow-[0_0_25px_rgba(0,217,255,0.4)] animate-pulse">
+            <div className="w-full h-full rounded-[22px] overflow-hidden bg-[#071122]">
+              <img
+                src="https://jambijohan0-cpu.github.io/Johan/img/J-Music.png"
+                alt="J-Music Art"
+                className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+                onError={(e) => {
+                  (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=400';
+                }}
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -103,61 +97,36 @@ export const HomeView: React.FC<HomeViewProps> = ({
         </div>
       </section>
 
-      {/* Trending Tracks List */}
+      {/* Trending Tracks Section */}
       <section>
         <div className="flex items-center justify-between mb-3 px-1">
-          <h3 className="text-sm font-extrabold text-white tracking-wide flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-[#FF5FC8] shadow-[0_0_6px_#FF5FC8]" />
-            Sedang Trending
-          </h3>
-          <span className="text-[11px] text-[#00D9FF] font-medium">Audius API (Default)</span>
+          <div className="flex items-center gap-2">
+            <span className="w-2.5 h-2.5 rounded-full bg-gradient-to-r from-[#00D9FF] to-[#FF5FC8] shadow-[0_0_8px_#00D9FF]" />
+            <h3 className="text-sm font-extrabold text-white tracking-wide">
+              Sedang Trending
+            </h3>
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="text-[10px] text-cyan-400 font-mono bg-cyan-950/80 px-2 py-0.5 rounded-full border border-cyan-500/30">
+              Auto Trending (ID, US, KR, CN)
+            </span>
+            <button
+              onClick={onRefresh}
+              className="p-1 text-slate-400 hover:text-white"
+              title="Segarkan"
+            >
+              <RefreshCw className={`w-3.5 h-3.5 ${isLoading ? 'animate-spin text-cyan-400' : ''}`} />
+            </button>
+          </div>
         </div>
 
-        {isLoading && trendingTracks.length === 0 ? (
-          <div className="space-y-2.5">
-            {[1, 2, 3, 4].map((i) => (
-              <div
-                key={i}
-                className="h-16 rounded-2xl bg-slate-800/40 animate-pulse border border-slate-800"
-              />
-            ))}
-          </div>
-        ) : (
-          <div className="space-y-2">
-            {trendingTracks.slice(0, 6).map((track) => (
-              <TrackCard
-                key={track.id}
-                track={track}
-                isPlaying={isPlaying && currentTrack?.id === track.id}
-                isCurrent={currentTrack?.id === track.id}
-                isFavorite={favorites.some((f) => f.id === track.id)}
-                onPlay={onPlay}
-                onToggleFavorite={onToggleFavorite}
-                onOpenPlaylistModal={onOpenPlaylistModal}
-                onOpenDownloadGate={onOpenDownloadGate}
-              />
-            ))}
-          </div>
-        )}
-      </section>
-
-      {/* Recommended for You */}
-      <section>
-        <div className="flex items-center justify-between mb-3 px-1">
-          <h3 className="text-sm font-extrabold text-white tracking-wide flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-[#67FFD4] shadow-[0_0_6px_#67FFD4]" />
-            Rekomendasi Pilihan
-          </h3>
-          <span className="text-[11px] text-slate-400">Chill & Techno</span>
-        </div>
-
-        <div className="space-y-2">
-          {recommendedTracks.map((track) => (
+        <div className="space-y-2.5">
+          {trendingTracks.slice(0, 10).map((track, idx) => (
             <TrackCard
-              key={track.id}
+              key={`${track.id}-${idx}`}
               track={track}
-              isPlaying={isPlaying && currentTrack?.id === track.id}
               isCurrent={currentTrack?.id === track.id}
+              isPlaying={isPlaying && currentTrack?.id === track.id}
               isFavorite={favorites.some((f) => f.id === track.id)}
               onPlay={onPlay}
               onToggleFavorite={onToggleFavorite}
@@ -167,6 +136,34 @@ export const HomeView: React.FC<HomeViewProps> = ({
           ))}
         </div>
       </section>
+
+      {/* Recommended Section */}
+      {recommendedTracks.length > 0 && (
+        <section>
+          <div className="flex items-center justify-between mb-3 px-1">
+            <h3 className="text-sm font-extrabold text-white tracking-wide flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-[#67FFD4] shadow-[0_0_6px_#67FFD4]" />
+              Pilihan Khusus Untuk Anda
+            </h3>
+          </div>
+
+          <div className="space-y-2.5">
+            {recommendedTracks.map((track, idx) => (
+              <TrackCard
+                key={`rec-${track.id}-${idx}`}
+                track={track}
+                isCurrent={currentTrack?.id === track.id}
+                isPlaying={isPlaying && currentTrack?.id === track.id}
+                isFavorite={favorites.some((f) => f.id === track.id)}
+                onPlay={onPlay}
+                onToggleFavorite={onToggleFavorite}
+                onOpenPlaylistModal={onOpenPlaylistModal}
+                onOpenDownloadGate={onOpenDownloadGate}
+              />
+            ))}
+          </div>
+        </section>
+      )}
     </div>
   );
 };
