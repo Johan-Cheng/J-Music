@@ -142,20 +142,46 @@ export function deduplicateTracks(tracks: Track[]): Track[] {
 }
 
 /**
- * Filter tracks by search query across title, artist name, and tags
+ * Check if a track is Indonesian (by genre, tags, artist or title keywords)
+ */
+export function isIndonesianTrack(track: Track): boolean {
+  const text = `${track.name} ${track.artist_name} ${track.genres?.join(' ')} ${track.tags?.join(' ')}`.toLowerCase();
+  const indoKeywords = ['indonesia', 'jakarta', 'nusantara', 'indo', 'dangdut', 'bali', 'bandung', 'surabaya', 'malay', 'senandung', 'merdeka'];
+  return indoKeywords.some((k) => text.includes(k));
+}
+
+/**
+ * Sort tracks placing Indonesian tracks first
+ */
+export function sortTracksByIndonesianFirst(tracks: Track[]): Track[] {
+  const copy = [...tracks];
+  copy.sort((a, b) => {
+    const aIndo = isIndonesianTrack(a);
+    const bIndo = isIndonesianTrack(b);
+    if (aIndo && !bIndo) return -1;
+    if (!aIndo && bIndo) return 1;
+    return 0;
+  });
+  return copy;
+}
+
+/**
+ * Filter tracks by search query across title, artist name, and tags with fuzzy keyword support
  */
 export function filterTracks(tracks: Track[], query: string, genre?: string): Track[] {
   const q = query.trim().toLowerCase();
   const g = genre && genre !== 'all' ? genre.toLowerCase() : null;
 
-  return tracks.filter((track) => {
+  const queryTokens = q.split(/\s+/).filter(Boolean);
+
+  const filtered = tracks.filter((track) => {
+    const trackText = `${track.name} ${track.artist_name} ${track.album_name || ''} ${track.genres?.join(' ') || ''} ${track.tags?.join(' ') || ''}`.toLowerCase();
+
     const matchesQuery =
       !q ||
+      queryTokens.every((token) => trackText.includes(token)) ||
       track.name.toLowerCase().includes(q) ||
-      track.artist_name.toLowerCase().includes(q) ||
-      (track.album_name && track.album_name.toLowerCase().includes(q)) ||
-      (track.genres && track.genres.some((item) => item.toLowerCase().includes(q))) ||
-      (track.tags && track.tags.some((item) => item.toLowerCase().includes(q)));
+      track.artist_name.toLowerCase().includes(q);
 
     const matchesGenre =
       !g ||
@@ -165,6 +191,8 @@ export function filterTracks(tracks: Track[], query: string, genre?: string): Tr
 
     return matchesQuery && matchesGenre;
   });
+
+  return sortTracksByIndonesianFirst(filtered);
 }
 
 /**
