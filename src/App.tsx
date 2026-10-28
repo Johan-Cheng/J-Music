@@ -349,10 +349,12 @@ export default function App() {
         >
           <div className="max-w-sm w-full p-6 rounded-3xl bg-[#0B1C32] border border-cyan-500/30 text-center shadow-[0_0_40px_rgba(0,217,255,0.25)]">
             <div className="relative w-20 h-20 mx-auto mb-4 rounded-full p-1 bg-gradient-to-tr from-[#00D9FF] via-[#67FFD4] to-[#FF5FC8] shadow-[0_0_20px_rgba(0,217,255,0.4)]">
-              <div className="w-full h-full rounded-full bg-[#071122] flex items-center justify-center">
-                <span className="text-3xl font-black bg-gradient-to-r from-[#00D9FF] to-[#67FFD4] bg-clip-text text-transparent">
-                  J
-                </span>
+              <div className="w-full h-full rounded-full bg-[#071122] flex items-center justify-center overflow-hidden">
+                <img
+                  src="https://jambijohan0-cpu.github.io/Johan/img/J-Music.png"
+                  alt="J-Music Logo"
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
 
